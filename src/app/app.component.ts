@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Recipe } from './recipes/recipe.model';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng13-udemy-course-project';
+  featureDisplayed = 'recipe';
+
+  onFeatureSelected(feature: string) {
+    this.featureDisplayed = feature;
+  }
 }
