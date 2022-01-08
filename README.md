@@ -1,4 +1,6 @@
 # Ng13UdemyCourseProject
+This is the **Recipe Book project** designed in the Angular - The Complete Guide (2022 Edition) Course on Udemy. This Angular course provided by Academind explores the fundamentals about modules, directives, components, databinding, routing, HTTP access, Services, Forms, Authentication and more. 
+This project is build step by step along the course as a practice.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.4.
 
