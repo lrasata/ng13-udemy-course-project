@@ -6,7 +6,8 @@ import { RecipesService } from '../recipes.service';
 
 @Component({
   selector: 'app-recipe-edit',
-  templateUrl: './recipe-edit.component.html'
+  templateUrl: './recipe-edit.component.html',
+  styles: ['input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched { border : 1px solid red}']
 })
 export class RecipeEditComponent implements OnInit {
   id: number;
@@ -51,17 +52,20 @@ export class RecipeEditComponent implements OnInit {
         for (let ingredient of recipe.ingredients) {
           recipeIngredients.push(
             new FormGroup({
-              'name': new FormControl(ingredient.name),
-              'amount': new FormControl(ingredient.amount)
+              'name': new FormControl(ingredient.name, Validators.required),
+              'amount': new FormControl(ingredient.amount, [
+                Validators.required,
+                Validators.pattern(/^[1-9]+[0-9]*$/)
+              ])
             })
           );
         }
       }
     }
     this.recipeForm = new FormGroup({
-      'name': new FormControl(recipeName),
-      'imagePath': new FormControl(recipeImgPath),
-      'description': new FormControl(recipeDescription),
+      'name': new FormControl(recipeName, Validators.required),
+      'imagePath': new FormControl(recipeImgPath, Validators.required),
+      'description': new FormControl(recipeDescription, Validators.required),
       'ingredients': recipeIngredients
     });
   }
