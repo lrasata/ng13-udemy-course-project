@@ -19,13 +19,12 @@ export interface AuthResponseData {
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   user = new BehaviorSubject<User>(null);
-
   constructor(private http: HttpClient, private router: Router) {}
 
   signup(email: string, password: string) {
     return this.http
       .post<AuthResponseData>(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyA3VYcOb9s-XMUURK5eQwPQvg8iyGDi28U',
+        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=',
         {
           email: email,
           password: password,
@@ -48,7 +47,7 @@ export class AuthService {
   login(email: string, password: string) {
     return this.http
       .post<AuthResponseData>(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyA3VYcOb9s-XMUURK5eQwPQvg8iyGDi28U',
+        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=',
         {
           email: email,
           password: password,
