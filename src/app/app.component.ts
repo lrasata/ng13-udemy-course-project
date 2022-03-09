@@ -1,8 +1,15 @@
-import { Component } from '@angular/core';
-import { Recipe } from './recipes/recipe.model';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
-export class AppComponent {}
+export class AppComponent implements OnInit{
+
+  constructor(private authService: AuthService){}
+
+  ngOnInit() {
+    this.authService.autoLogin();
+  }
+}
